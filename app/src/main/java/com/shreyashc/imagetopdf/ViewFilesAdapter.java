@@ -52,10 +52,12 @@ public class ViewFilesAdapter extends RecyclerView.Adapter<ViewFilesAdapter.File
                 Intent target = new Intent(Intent.ACTION_VIEW);
                 target.setDataAndType(Uri.fromFile(allFiles.get(position)), "application/pdf");
                 target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-
+                target.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 Intent intent = Intent.createChooser(target, "Open File");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 try {
-                    mContext.startActivity(intent);
+                    mContext.getApplicationContext().startActivity(intent);
+
                 } catch (ActivityNotFoundException e) {
                     Toast.makeText(mContext, "Not app to view pdf files", Toast.LENGTH_SHORT).show();
                 }
@@ -74,12 +76,17 @@ public class ViewFilesAdapter extends RecyclerView.Adapter<ViewFilesAdapter.File
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_SEND);
                 intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
                 intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 intent.putExtra(Intent.EXTRA_STREAM, uri);
                 intent.setType(mContext.getContentResolver().getType(uri));
-                Log.d(TAG, "onClick: " + mContext.getContentResolver().getType(uri));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-                mContext.startActivity(Intent.createChooser(intent, "Share"));
+                Intent chooserIntent = Intent.createChooser(intent, "Share");
+                chooserIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                mContext.getApplicationContext().startActivity(chooserIntent);
+
+
 
             }
         });

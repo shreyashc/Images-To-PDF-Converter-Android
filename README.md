@@ -8,5 +8,5 @@ Android App to convert images to PDF
 # Screenshots
 https://www.appstorescreenshot.com
 # Credits
-inspired by @GohelDhaval
+inspired by 
 DhavalGohel/ImageToPdfCreator

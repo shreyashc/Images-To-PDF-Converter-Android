@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_marginTop="22dp"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+
+    android:padding="16dp">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_nav"
+        android:text="Images to PDF"
+        android:textColor="@android:color/white"
+        android:textSize="29sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

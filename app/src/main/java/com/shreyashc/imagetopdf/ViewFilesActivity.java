@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ViewFilesActivity extends AppCompatActivity {
     RecyclerView filesRecyclerView;
-    public static LinearLayout noFiles;
+    private LinearLayout noFiles;
     ImageButton closeInfo;
     LinearLayout infoLayout;
     Toolbar toolbar;
@@ -68,7 +68,7 @@ public class ViewFilesActivity extends AppCompatActivity {
             filesRecyclerView.setVisibility(View.GONE);
         }
 
-        ViewFilesAdapter viewFilesAdapter = new ViewFilesAdapter(files, getApplication());
+        ViewFilesAdapter viewFilesAdapter = new ViewFilesAdapter(files, getApplication(),noFiles);
         filesRecyclerView.setAdapter(viewFilesAdapter);
 
         closeInfo.setOnClickListener(new View.OnClickListener() {
@@ -81,5 +81,8 @@ public class ViewFilesActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
 }

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,11 +27,12 @@ import static android.content.ContentValues.TAG;
 public class ViewFilesAdapter extends RecyclerView.Adapter<ViewFilesAdapter.FilesViewHolder> {
     private Context mContext;
     private List<File> allFiles;
+    private LinearLayout noFiles;
 
-    public ViewFilesAdapter(List<File> allFiles, Context context) {
+    public ViewFilesAdapter(List<File> allFiles, Context context,LinearLayout noFiles) {
         this.allFiles = allFiles;
         mContext = context;
-
+        this.noFiles=noFiles;
     }
 
     @NonNull
@@ -102,7 +104,7 @@ public class ViewFilesAdapter extends RecyclerView.Adapter<ViewFilesAdapter.File
 
                         notifyDataSetChanged();
                         if (allFiles.size() == 0) {
-                            ViewFilesActivity.noFiles.setVisibility(View.VISIBLE);
+                            noFiles.setVisibility(View.VISIBLE);
                         }
                     }
                 }

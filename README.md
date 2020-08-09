@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/shreyashc/images-to-pdf-converter-android/badge)](https://www.codefactor.io/repository/github/shreyashc/images-to-pdf-converter-android)
 # Images-To-PDF-Converter-Android
 
 <h2> Android App to convert images to PDF </h2>
